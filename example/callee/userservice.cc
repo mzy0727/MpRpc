@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
 #include "user.pb.h"
+#include "mprpcapplication.h"
+#include "rpcprovider.h"
 
 using namespace fixbug;
 /*
 UserService原来是一个本地服务，提供了两个进程内的本地方法，Login和GetFriendLists
 */
-
 class UserService:public UserServiceRpc{    // 使用在rpc服务的发布端（rpc服务提供者）
 public:
     bool Login(std::string name, std::string pwd){
@@ -42,9 +43,19 @@ public:
 
 };
 
-int main(){
+int main(int argc, char **argv){
     UserService us;
     us.Login("xxx","xxx");
 
+    // 调用框架的初始化操作 provider -i config.conf
+    MprpcApplication::Init(argc,argv);
+
+    // provider是一个rpc网络服务对象，把UserService对象发布到rpc节点上
+    RpcProvider provider;
+    provider.NotifyService(new UserService());
+    //provider.NotifyService(new ProductService());
+
+    // 启动一个rpc服务发布节点,Run以后，进程进入阻塞状态，等待远程的rpc调用请求
+    provider.Run();
     return 0;
 }

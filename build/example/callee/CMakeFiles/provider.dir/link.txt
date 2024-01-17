@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/provider.dir/userservice.cc.o CMakeFiles/provider.dir/__/user.pb.cc.o -o /media/mzy/learn_mprpc/bin/provider   -L/media/mzy/learn_mprpc/lib  -Wl,-rpath,/media/mzy/learn_mprpc/lib /media/mzy/learn_mprpc/lib/libmprpc.so -lprotobuf 
