@@ -221,6 +221,9 @@ learn_mprpc_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 learn_mprpc_SOURCE_DIR:STATIC=/media/mzy/learn_mprpc
 
+//Dependencies for the target
+mprpc_LIB_DEPENDS:STATIC=general;muduo_net;general;muduo_base;general;pthread;
+
 
 ########################
 # INTERNAL cache entries

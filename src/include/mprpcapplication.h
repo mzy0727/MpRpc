@@ -9,6 +9,7 @@ public:
         return &application;
     }
     static void Init(int argc, char **argv);
+    MprpcConfig GetConfig();
 private:
     // 防止拷贝构造和赋值操作，确保单例的唯一性
     MprpcApplication(const MprpcApplication&) =delete;  // 删除拷贝构造函数

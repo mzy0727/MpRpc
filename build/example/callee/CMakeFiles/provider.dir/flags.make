@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/media/mzy/learn_mprpc/src/include -I/media/mzy/learn_mprpc/example
 
-CXX_FLAGS = 
+CXX_FLAGS = -g
 

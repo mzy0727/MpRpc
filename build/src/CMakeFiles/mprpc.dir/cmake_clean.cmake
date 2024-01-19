@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/media/mzy/learn_mprpc/lib/libmprpc.a"
   "/media/mzy/learn_mprpc/lib/libmprpc.pdb"
-  "/media/mzy/learn_mprpc/lib/libmprpc.so"
   "CMakeFiles/mprpc.dir/mprpcapplication.cc.o"
   "CMakeFiles/mprpc.dir/mprpcapplication.cc.o.d"
   "CMakeFiles/mprpc.dir/mprpcconfig.cc.o"

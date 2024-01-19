@@ -12,5 +12,5 @@ public:
     std::string Load(const std::string &key);
 private:
     std::unordered_map<std::string, std::string> m_configMap;   // 保存配置项
-
+    void Trim(std::string &src_buf);    // 去掉字符串前后的空格
 };

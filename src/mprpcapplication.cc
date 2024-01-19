@@ -42,3 +42,7 @@ void MprpcApplication::Init(int argc, char **argv){
     std::cout<<"zookeeperip: "<<m_config.Load("zookeeperip")<<std::endl;
     std::cout<<"zookeeperport: "<<m_config.Load("zookeeperport")<<std::endl;
 }
+
+MprpcConfig MprpcApplication::GetConfig(){
+    return m_config;
+}

@@ -108,7 +108,7 @@ provider_EXTERNAL_OBJECTS =
 /media/mzy/learn_mprpc/bin/provider: example/callee/CMakeFiles/provider.dir/userservice.cc.o
 /media/mzy/learn_mprpc/bin/provider: example/callee/CMakeFiles/provider.dir/__/user.pb.cc.o
 /media/mzy/learn_mprpc/bin/provider: example/callee/CMakeFiles/provider.dir/build.make
-/media/mzy/learn_mprpc/bin/provider: /media/mzy/learn_mprpc/lib/libmprpc.so
+/media/mzy/learn_mprpc/bin/provider: /media/mzy/learn_mprpc/lib/libmprpc.a
 /media/mzy/learn_mprpc/bin/provider: example/callee/CMakeFiles/provider.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /media/mzy/learn_mprpc/bin/provider"
 	cd /media/mzy/learn_mprpc/build/example/callee && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/provider.dir/link.txt --verbose=$(VERBOSE)
