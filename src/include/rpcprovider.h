@@ -26,9 +26,13 @@ public:
 private:
     //muduo的事件循环EventLoop类的对象
     muduo::net::EventLoop m_eventloop;
-
-
-
+    // service服务类型信息
+    struct ServiceInfo{
+        google::protobuf::Service *m_service;   // 保存服务对象
+        std::unordered_map<std::string,const google::protobuf::MethodDescriptor*> m_methodMap; // 保存服务方法
+    };
+    // 存储注册成功的服务对象和其服务方法的所有信息
+    std::unordered_map<std::string,ServiceInfo> m_serviceMap;
     //muduo库TCP连接建立时执行的回调函数
     void OnConnection(const muduo::net::TcpConnectionPtr &);
 

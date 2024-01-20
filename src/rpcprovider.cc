@@ -1,16 +1,41 @@
 #include "rpcprovider.h"
 #include "mprpcapplication.h"
-#include <string>
 
+
+/*
+service_name => service描述
+                        =》service* 记录服务对象
+                        method_name => method方法对象
+*/
 //这个函数是框架提供给外部发布rpc方法的接口
-void RpcProvider::NotifyService(google::protobuf::Service *service)
-{
-   
+void RpcProvider::NotifyService(google::protobuf::Service *service){
+
+    ServiceInfo service_info;
+
+    // 获取服务对象的描述信息
+    const google::protobuf::ServiceDescriptor *pserviceDesc = service->GetDescriptor();
+    // 获取服务的名字
+    std::string service_name = pserviceDesc->name();
+    // 获取服务对象service的方法的数量
+    int methodCnt = pserviceDesc->method_count();
+
+    std::cout<<"service_name:"<<service_name<<std::endl;
+    // 获取服务对象指定下标的服务方法描述（抽象描述）
+    for(int i = 0; i < methodCnt; ++i){
+        const google::protobuf::MethodDescriptor* pmethdDesc = pserviceDesc->method(i);
+        std::string method_name = pmethdDesc->name();
+        service_info.m_methodMap.insert({method_name,pmethdDesc});
+
+        std::cout<<"method_name:"<<method_name<<std::endl;
+    }
+    service_info.m_service = service;
+    m_serviceMap.insert({service_name,service_info});
+
 }
 
 //启动rpc服务节点，开始提供rpc远程网络调用服务
-void RpcProvider::Run()
-{
+void RpcProvider::Run(){
+
     //读取配置文件，获取rpcserver的ip地址和端口号
     std::string ip = MprpcApplication::GetInstance()->GetConfig().Load("rpcserverip");
     uint16_t port = atoi(MprpcApplication::GetInstance()->GetConfig().Load("rpcserverport").c_str());
@@ -67,7 +92,7 @@ std::string   insert和copy方法
 //主要作用：首先反序列化MprpcChannel::CallMethod()中发过来的消息，之后会调用相应的本地方法，之后序列化响应，并将序列化后的响应返回给MprpcChannel::CallMethod()。
 void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
                             muduo::net::Buffer *buffer,
-                            muduo::Timestamp)
-{
+                            muduo::Timestamp){
+                                
     }
 
