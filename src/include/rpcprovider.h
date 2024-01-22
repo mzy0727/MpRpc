@@ -39,5 +39,6 @@ private:
     //muduo库TCP连接上有消息到来（消息读写）时执行的回调函数，相当于服务端的桩stub
     void OnMessage(const muduo::net::TcpConnectionPtr &, muduo::net::Buffer *, muduo::Timestamp);
 
-   
+    // Closure的回调操作，用于序列化rpc的响应和网络发送
+    void SendRpcResponse(const muduo::net::TcpConnectionPtr &, google::protobuf::Message *);
 };
