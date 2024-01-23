@@ -278,7 +278,7 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: \
  /usr/include/muduo/base/Atomic.h \
  /media/mzy/learn_mprpc/src/include/mprpcapplication.h \
  /media/mzy/learn_mprpc/src/include/mprpcconfig.h \
- /media/mzy/learn_mprpc/src/rpcheader.pb.h \
+ /media/mzy/learn_mprpc/src/include/rpcheader.pb.h \
  /usr/local/include/google/protobuf/io/coded_stream.h \
  /usr/include/c++/9/climits \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h \

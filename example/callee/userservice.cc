@@ -13,6 +13,13 @@ public:
     bool Login(std::string name, std::string pwd){
         std::cout << "doing local service Login"<<std::endl;
         std::cout<<"name:"<<name<<"pwd:"<<pwd<<std::endl;
+        return true;
+    }
+    
+    bool Register(int id, std::string name, std::string pwd){
+        std::cout << "doing local service Register"<<std::endl;
+        std::cout<<"id: "<<id<<"name: "<<name<<"pwd: "<<pwd<<std::endl;
+        return true;
     }
     /*
     重写基类UserServiceRpc的虚函数 下面这些方法都是框架直接调用的
@@ -40,12 +47,28 @@ public:
         // 执行响应对象数据的序列化和网络发送（都是由框架完成的）
         done->Run();
     }
+    void Register(::google::protobuf::RpcController* controller,
+                       const ::fixbug::RegisterRequest* request,
+                       ::fixbug::RegisterResponse* response,
+                       ::google::protobuf::Closure* done){
+        // 框架给业务上报了请求参数RegisterRequest，应用获取相应数据做本地业务
+        int id = request->id();
+        std::string name = request->name();
+        std::string pwd = request->pwd();
+        // 本地业务
+        bool register_result = Register(id,name,pwd);
 
+        response->mutable_result()->set_errcode(0);
+        response->mutable_result()->set_errmsg("");
+        response->set_sucess(register_result);
+
+        done->Run();
+    }
 };
 
 int main(int argc, char **argv){
     UserService us;
-    us.Login("xxx","xxx");
+   // us.Login("xxx","xxx");
 
     // 调用框架的初始化操作 provider -i config.conf
     MprpcApplication::Init(argc,argv);

@@ -8,3 +8,6 @@
 /media/mzy/learn_mprpc/build/example/callee/CMakeFiles/provider.dir
 /media/mzy/learn_mprpc/build/example/callee/CMakeFiles/edit_cache.dir
 /media/mzy/learn_mprpc/build/example/callee/CMakeFiles/rebuild_cache.dir
+/media/mzy/learn_mprpc/build/example/caller/CMakeFiles/consumer.dir
+/media/mzy/learn_mprpc/build/example/caller/CMakeFiles/edit_cache.dir
+/media/mzy/learn_mprpc/build/example/caller/CMakeFiles/rebuild_cache.dir

@@ -1,6 +1,7 @@
 src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o: \
  /media/mzy/learn_mprpc/src/rpcheader.pb.cc /usr/include/stdc-predef.h \
- /media/mzy/learn_mprpc/src/rpcheader.pb.h /usr/include/c++/9/limits \
+ /media/mzy/learn_mprpc/src/include/rpcheader.pb.h \
+ /usr/include/c++/9/limits \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \

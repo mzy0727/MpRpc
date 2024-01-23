@@ -83,10 +83,24 @@ src/CMakeFiles/mprpc.dir/mprpcapplication.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mprpc.dir/mprpcapplication.cc.s"
 	cd /media/mzy/learn_mprpc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/mzy/learn_mprpc/src/mprpcapplication.cc -o CMakeFiles/mprpc.dir/mprpcapplication.cc.s
 
+src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o: src/CMakeFiles/mprpc.dir/flags.make
+src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o: /media/mzy/learn_mprpc/src/mprpcchannel.cc
+src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o: src/CMakeFiles/mprpc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o"
+	cd /media/mzy/learn_mprpc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o -MF CMakeFiles/mprpc.dir/mprpcchannel.cc.o.d -o CMakeFiles/mprpc.dir/mprpcchannel.cc.o -c /media/mzy/learn_mprpc/src/mprpcchannel.cc
+
+src/CMakeFiles/mprpc.dir/mprpcchannel.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mprpc.dir/mprpcchannel.cc.i"
+	cd /media/mzy/learn_mprpc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/mzy/learn_mprpc/src/mprpcchannel.cc > CMakeFiles/mprpc.dir/mprpcchannel.cc.i
+
+src/CMakeFiles/mprpc.dir/mprpcchannel.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mprpc.dir/mprpcchannel.cc.s"
+	cd /media/mzy/learn_mprpc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/mzy/learn_mprpc/src/mprpcchannel.cc -o CMakeFiles/mprpc.dir/mprpcchannel.cc.s
+
 src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o: src/CMakeFiles/mprpc.dir/flags.make
 src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o: /media/mzy/learn_mprpc/src/mprpcconfig.cc
 src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o: src/CMakeFiles/mprpc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o"
 	cd /media/mzy/learn_mprpc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o -MF CMakeFiles/mprpc.dir/mprpcconfig.cc.o.d -o CMakeFiles/mprpc.dir/mprpcconfig.cc.o -c /media/mzy/learn_mprpc/src/mprpcconfig.cc
 
 src/CMakeFiles/mprpc.dir/mprpcconfig.cc.i: cmake_force
@@ -100,7 +114,7 @@ src/CMakeFiles/mprpc.dir/mprpcconfig.cc.s: cmake_force
 src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o: src/CMakeFiles/mprpc.dir/flags.make
 src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o: /media/mzy/learn_mprpc/src/rpcheader.pb.cc
 src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o: src/CMakeFiles/mprpc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o"
 	cd /media/mzy/learn_mprpc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o -MF CMakeFiles/mprpc.dir/rpcheader.pb.cc.o.d -o CMakeFiles/mprpc.dir/rpcheader.pb.cc.o -c /media/mzy/learn_mprpc/src/rpcheader.pb.cc
 
 src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.i: cmake_force
@@ -114,7 +128,7 @@ src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.s: cmake_force
 src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: src/CMakeFiles/mprpc.dir/flags.make
 src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: /media/mzy/learn_mprpc/src/rpcprovider.cc
 src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: src/CMakeFiles/mprpc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/mprpc.dir/rpcprovider.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/mprpc.dir/rpcprovider.cc.o"
 	cd /media/mzy/learn_mprpc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/mprpc.dir/rpcprovider.cc.o -MF CMakeFiles/mprpc.dir/rpcprovider.cc.o.d -o CMakeFiles/mprpc.dir/rpcprovider.cc.o -c /media/mzy/learn_mprpc/src/rpcprovider.cc
 
 src/CMakeFiles/mprpc.dir/rpcprovider.cc.i: cmake_force
@@ -128,6 +142,7 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.s: cmake_force
 # Object files for target mprpc
 mprpc_OBJECTS = \
 "CMakeFiles/mprpc.dir/mprpcapplication.cc.o" \
+"CMakeFiles/mprpc.dir/mprpcchannel.cc.o" \
 "CMakeFiles/mprpc.dir/mprpcconfig.cc.o" \
 "CMakeFiles/mprpc.dir/rpcheader.pb.cc.o" \
 "CMakeFiles/mprpc.dir/rpcprovider.cc.o"
@@ -136,12 +151,13 @@ mprpc_OBJECTS = \
 mprpc_EXTERNAL_OBJECTS =
 
 /media/mzy/learn_mprpc/lib/libmprpc.a: src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o
+/media/mzy/learn_mprpc/lib/libmprpc.a: src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o
 /media/mzy/learn_mprpc/lib/libmprpc.a: src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o
 /media/mzy/learn_mprpc/lib/libmprpc.a: src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o
 /media/mzy/learn_mprpc/lib/libmprpc.a: src/CMakeFiles/mprpc.dir/rpcprovider.cc.o
 /media/mzy/learn_mprpc/lib/libmprpc.a: src/CMakeFiles/mprpc.dir/build.make
 /media/mzy/learn_mprpc/lib/libmprpc.a: src/CMakeFiles/mprpc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library /media/mzy/learn_mprpc/lib/libmprpc.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/mzy/learn_mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library /media/mzy/learn_mprpc/lib/libmprpc.a"
 	cd /media/mzy/learn_mprpc/build/src && $(CMAKE_COMMAND) -P CMakeFiles/mprpc.dir/cmake_clean_target.cmake
 	cd /media/mzy/learn_mprpc/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mprpc.dir/link.txt --verbose=$(VERBOSE)
 
