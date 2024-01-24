@@ -23,7 +23,8 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     if(request->SerializeToString(&args_str)){
         args_size = args_str.size();
     }else{
-        std::cout<< "Serialize request error!" << std::endl;
+        //std::cout<< "Serialize request error!" << std::endl;
+        controller->SetFailed("Serialize request error!");
         return ;
     }
 
@@ -39,7 +40,8 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     if(rpcHeader.SerializeToString(&rpc_header_str)){
         header_size = rpc_header_str.size();
     }else{
-        std::cout<< "Serialize request error!" << std::endl;
+        // std::cout<< "Serialize rpc header error!" << std::endl;
+        controller->SetFailed("Serialize rpc header error!");
         return ;
     }
 
@@ -61,8 +63,12 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     // 使用tcp编程，完成rpc方法的远程调用
     int clientfd = socket(AF_INET,SOCK_STREAM,0);   // 可以使用智能指针
     if(clientfd == -1){
-        std::cout<< "create socket error! errno: "<<errno<<std::endl;
-        exit(EXIT_FAILURE);
+        //std::cout<< "create socket error! errno: "<<errno<<std::endl;
+        char errText[512] = { 0 };
+        sprintf(errText,"create socket error! errno: %d",errno);
+        controller->SetFailed(errText);
+        return ;
+        //exit(EXIT_FAILURE);
     }
     
     // 读取配置文件rpcserver的信息
@@ -75,9 +81,13 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 
     // 连接rpc服务节点
     if(-1 == connect(clientfd,(struct sockaddr*)&server_addr,sizeof(server_addr))){
-        std::cout<< "connect error! errno: "<<errno<<std::endl;
+       // std::cout<< "connect error! errno: "<<errno<<std::endl;
+        char errText[512] = { 0 };
+        sprintf(errText,"connect error! errno: %d",errno);
+        controller->SetFailed(errText);
         close(clientfd);
-        exit(EXIT_FAILURE);
+        return ;
+        //exit(EXIT_FAILURE);
     }
     // 发送rpc请求
     if(-1 == send(clientfd,send_rpc_str.c_str(),send_rpc_str.size(),0)){

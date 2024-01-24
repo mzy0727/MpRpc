@@ -235,6 +235,8 @@ example/callee/CMakeFiles/provider.dir/friendservice.cc.o: \
  /usr/include/c++/9/cassert /usr/local/include/google/protobuf/service.h \
  /media/mzy/learn_mprpc/src/include/mprpcapplication.h \
  /media/mzy/learn_mprpc/src/include/mprpcconfig.h \
+ /media/mzy/learn_mprpc/src/include/mprpcchannel.h \
+ /media/mzy/learn_mprpc/src/include/mprpccontroller.h \
  /media/mzy/learn_mprpc/src/include/rpcprovider.h \
  /usr/include/muduo/net/EventLoop.h /usr/include/boost/any.hpp \
  /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \

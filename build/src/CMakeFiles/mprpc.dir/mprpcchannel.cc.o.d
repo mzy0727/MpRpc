@@ -236,6 +236,7 @@ src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o: \
  /usr/local/include/google/protobuf/map.h /usr/include/c++/9/functional \
  /usr/include/c++/9/bits/std_function.h \
  /usr/local/include/google/protobuf/map_type_handler.h \
+ /media/mzy/learn_mprpc/src/include/mprpccontroller.h \
  /media/mzy/learn_mprpc/src/include/rpcheader.pb.h \
  /usr/local/include/google/protobuf/extension_set.h \
  /usr/include/c++/9/cassert /usr/include/arpa/inet.h \

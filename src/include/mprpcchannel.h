@@ -3,6 +3,7 @@
 #include <google/protobuf/service.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/message.h>
+#include "mprpccontroller.h"
 /*
 header_size + service_name method_name args_size + args
 */

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <string>
+#include "logger.h"
 
 MprpcConfig MprpcApplication::m_config;
 
@@ -41,6 +42,10 @@ void MprpcApplication::Init(int argc, char **argv){
     std::cout<<"rpcserverport: "<<m_config.Load("rpcserverport")<<std::endl;
     std::cout<<"zookeeperip: "<<m_config.Load("zookeeperip")<<std::endl;
     std::cout<<"zookeeperport: "<<m_config.Load("zookeeperport")<<std::endl;
+    bool flag = Logger::getInstance()->init("",1000);
+    if(!flag){
+        return ;
+    }
 }
 
 MprpcConfig MprpcApplication::GetConfig(){

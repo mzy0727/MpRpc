@@ -1,7 +1,7 @@
 #include "rpcprovider.h"
 #include "mprpcapplication.h"
 #include "rpcheader.pb.h"
-
+#include "logger.h"
 /*
 service_name => service描述
                         =》service* 记录服务对象
@@ -27,6 +27,12 @@ void RpcProvider::NotifyService(google::protobuf::Service *service){
         service_info.m_methodMap.insert({method_name,pmethdDesc});
 
         std::cout<<"method_name:"<<method_name<<std::endl;
+        LOG_INFO("method_name: %s",method_name.c_str());
+        LOG_INFO("method_name: %s",method_name.c_str());
+        LOG_INFO("method_name: %s",method_name.c_str());
+        LOG_ERROR("method_name: %s",method_name.c_str());
+        LOG_DEBUG("method_name: %s",method_name.c_str());
+        LOG_DEBUG("method_name: %s",method_name.c_str());
     }
     service_info.m_service = service;
     m_serviceMap.insert({service_name,service_info});
