@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include "mprpcapplication.h"
+#include "zookeeperutil.h"
 // 所有通过stub代理调用的rpc方法，都走到这里了，统一做rpc方法调用端数据序列化和网络发送
 void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
                         google::protobuf::RpcController* controller, const google::protobuf::Message* request,
@@ -71,13 +72,38 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         //exit(EXIT_FAILURE);
     }
     
+
     // 读取配置文件rpcserver的信息
-    std::string ip = MprpcApplication::GetInstance()->GetConfig().Load("rpcserverip");
-    uint16_t port = atoi(MprpcApplication::GetInstance()->GetConfig().Load("rpcserverport").c_str());
-    struct sockaddr_in server_addr;
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(port);
-    server_addr.sin_addr.s_addr = inet_addr(ip.c_str());
+    // std::string ip = MprpcApplication::GetInstance()->GetConfig().Load("rpcserverip");
+    // uint16_t port = atoi(MprpcApplication::GetInstance()->GetConfig().Load("rpcserverport").c_str());
+    // struct sockaddr_in server_addr;
+    // server_addr.sin_family = AF_INET;
+    // server_addr.sin_port = htons(port);
+    // server_addr.sin_addr.s_addr = inet_addr(ip.c_str());
+
+    ZkClient zkCli;
+    zkCli.Start();
+
+    std::string method_path = "/" + service_name + "/" + method_name;
+    std::string host_data = zkCli.GetData(method_path.c_str());
+    if(host_data == ""){
+        controller->SetFailed(method_path + "is not exist!");
+        return;
+    }
+
+    int idx = host_data.find(":");
+  if (idx == -1) {
+    controller->SetFailed(method_path + " address is invalid!");
+    return;
+  }
+  std::string ip = host_data.substr(0, idx);
+  uint16_t port =
+      atoi(host_data.substr(idx + 1, host_data.size() - idx).c_str());
+
+  struct sockaddr_in server_addr;
+  server_addr.sin_family = AF_INET;
+  server_addr.sin_port = htons(port);
+  server_addr.sin_addr.s_addr = inet_addr(ip.c_str());
 
     // 连接rpc服务节点
     if(-1 == connect(clientfd,(struct sockaddr*)&server_addr,sizeof(server_addr))){
