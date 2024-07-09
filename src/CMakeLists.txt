@@ -8,4 +8,4 @@ aux_source_directory(. SRC_LIST)
 #              zookeeperutil.cc
 #              )
 add_library(mprpc STATIC ${SRC_LIST})
-target_link_libraries(mprpc muduo_net muduo_base pthread zookeeper_mt)
+target_link_libraries(mprpc muduo_net muduo_base pthread zookeeper_mt symlog)

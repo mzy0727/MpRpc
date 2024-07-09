@@ -3,6 +3,7 @@
 #include "rpcheader.pb.h"
 #include "logger.h"
 #include "zookeeperutil.h"
+// #include "spdlog/spdlog.h"
 /*
 service_name => service描述
                         =》service* 记录服务对象
@@ -19,21 +20,22 @@ void RpcProvider::NotifyService(google::protobuf::Service *service){
     std::string service_name = pserviceDesc->name();
     // 获取服务对象service的方法的数量
     int methodCnt = pserviceDesc->method_count();
-
-    std::cout<<"service_name:"<<service_name<<std::endl;
+    LOG_INFO("service_name:{:s}",service_name);
+   // std::cout<<"service_name:"<<service_name<<std::endl;
     // 获取服务对象指定下标的服务方法描述（抽象描述）
     for(int i = 0; i < methodCnt; ++i){
         const google::protobuf::MethodDescriptor* pmethdDesc = pserviceDesc->method(i);
         std::string method_name = pmethdDesc->name();
         service_info.m_methodMap.insert({method_name,pmethdDesc});
 
-        std::cout<<"method_name:"<<method_name<<std::endl;
-        LOG_INFO("method_name: %s",method_name.c_str());
-        LOG_INFO("method_name: %s",method_name.c_str());
-        LOG_INFO("method_name: %s",method_name.c_str());
-        LOG_ERROR("method_name: %s",method_name.c_str());
-        LOG_DEBUG("method_name: %s",method_name.c_str());
-        LOG_DEBUG("method_name: %s",method_name.c_str());
+      //  std::cout<<"method_name:"<<method_name<<std::endl;
+      // spdlog::info("method_name: {:s}",method_name.c_str());
+        //  LOG_INFO("method_name: {:s}",method_name.c_str());
+        // LOG_INFO("method_name: %s",method_name.c_str());
+        // LOG_INFO("method_name: %s",method_name.c_str());
+        // LOG_ERROR("method_name: %s",method_name.c_str());
+        // LOG_DEBUG("method_name: %s",method_name.c_str());
+        // LOG_DEBUG("method_name: %s",method_name.c_str());
     }
     service_info.m_service = service;
     m_serviceMap.insert({service_name,service_info});
@@ -79,8 +81,8 @@ void RpcProvider::Run(){
     }
 
     //rpc服务端准备启动，打印信息
-    std::cout << "RpcProvider start service at ip:" << ip << " port:" << port << std::endl;
-
+   // std::cout << "RpcProvider start service at ip:" << ip << " port:" << port << std::endl;
+//    spdlog::info("RpcProvider start service at ip:{:s}, port:{:d}",ip.c_str(),port);
     //启动网络服务
     server.start();
     //相当于启动了epoll_wait，阻塞，等待远程连接
@@ -126,13 +128,15 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
 
     // 网络上接收的远程rpc调用请求的字符流  Login args
     std::string recv_buf = buffer->retrieveAllAsString();
-
+    std::cout<<"recv_buf:"<<recv_buf<<std::endl;
+    //LOG_INFO("recv_buf: {:s}",recv_buf);
     // 从字符流中读取前4个字节的内容
     uint32_t header_size = 0;
     recv_buf.copy((char*)&header_size,4,0);
-
+    
     // 根据head_size读取数据头的原始字符流,反序列化数据，得到rpc请求的详细消息
     std::string rpc_header_str = recv_buf.substr(4,header_size);
+    LOG_INFO("rpc_header_str size: {:d}",rpc_header_str.size());
     mprpc::RpcHeader rpcHeader;
     std::string service_name;
     std::string method_name;

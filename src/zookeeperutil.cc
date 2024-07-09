@@ -1,5 +1,6 @@
 #include "zookeeperutil.h"
 #include "mprpcapplication.h"
+#include "logger.h"
 #include <iostream>
 
 // 全局的watcher观察器 zksever给zkclient的通知
@@ -32,7 +33,7 @@ void ZkClient::Start() {
 
     m_zhandle = zookeeper_init(connstr.c_str(), global_wather, 30000, nullptr, nullptr, 0);
     if (nullptr == m_zhandle) {
-        // LOG_ERR("zookeeper init error!");
+         LOG_ERR("zookeeper init error!");
         // std::cout << "zookeeper init error!" << std::endl;
         exit(EXIT_FAILURE);
     }
@@ -42,8 +43,8 @@ void ZkClient::Start() {
     zoo_set_context(m_zhandle, &sem);
 
     sem_wait(&sem);
-    std::cout << "zookeeper init success!" << std::endl;
-    // LOG_INFO("zookeeper init success!");
+  //  std::cout << "zookeeper init success!" << std::endl;
+     LOG_INFO("zookeeper init success!");
 }
 
 // 在zkserver上根据指定的path创建znode节点
@@ -58,13 +59,13 @@ void ZkClient::Create(const char* path, const char* data, int datalen, int state
                             &ZOO_OPEN_ACL_UNSAFE, state, path_buffer, bufferlen);
 
         if (ZOK == flag) {
-            std::cout << "znode create success! path:" << path << std::endl;
-            // LOG_INFO("znode create success! path:%s", path);
+           // std::cout << "znode create success! path:" << path << std::endl;
+             LOG_INFO("znode create success! path: {:s}", path);
         } else {
-            std::cout << "flag:" << flag << std::endl;
-            std::cout << "znode create error! path:" << path <<std::endl;
-            // LOG_ERR("flag:%d", flag);
-            // LOG_ERR("znode create error! path:%s", path);
+           // std::cout << "flag:" << flag << std::endl;
+           // std::cout << "znode create error! path:" << path <<std::endl;
+             LOG_ERR("flag: %d", flag);
+             LOG_ERR("znode create error! path: %s", path);
             exit(EXIT_FAILURE);
         }
     }
@@ -76,8 +77,8 @@ std::string ZkClient::GetData(const char* path) {
     int buffer_len = sizeof(buffer);
     int flag = zoo_get(m_zhandle, path, 0, buffer, &buffer_len, nullptr);
     if (ZOK != flag) {
-        std::cout << "get znode error!" << std::endl;
-        // LOG_ERR("get znode error!");
+        //std::cout << "get znode error!" << std::endl;
+        LOG_ERR("get znode error!");
         return "";
     } else {
         return buffer;

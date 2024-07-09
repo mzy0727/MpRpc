@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <string>
 #include "logger.h"
+// #include "symlog.h"
+
 
 MprpcConfig MprpcApplication::m_config;
 
@@ -38,14 +40,14 @@ void MprpcApplication::Init(int argc, char **argv){
     // 开始加载配置文件
     m_config.LoadConfigFile(config_file.c_str());
     // 测试
-    std::cout<<"rpcserverip: "<<m_config.Load("rpcserverip")<<std::endl;
-    std::cout<<"rpcserverport: "<<m_config.Load("rpcserverport")<<std::endl;
-    std::cout<<"zookeeperip: "<<m_config.Load("zookeeperip")<<std::endl;
-    std::cout<<"zookeeperport: "<<m_config.Load("zookeeperport")<<std::endl;
-    bool flag = Logger::getInstance()->init("",1000);
-    if(!flag){
-        return ;
-    }
+    // std::cout<<"rpcserverip: "<<m_config.Load("rpcserverip")<<std::endl;
+    // std::cout<<"rpcserverport: "<<m_config.Load("rpcserverport")<<std::endl;
+    // std::cout<<"zookeeperip: "<<m_config.Load("zookeeperip")<<std::endl;
+    // std::cout<<"zookeeperport: "<<m_config.Load("zookeeperport")<<std::endl;
+    // bool flag = Logger::getInstance()->init("",1000);
+    // if(!flag){
+    //     return ;
+    // }
 }
 
 MprpcConfig MprpcApplication::GetConfig(){

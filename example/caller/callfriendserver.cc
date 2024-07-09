@@ -1,5 +1,6 @@
 #include <iostream>
-#include "mprpcapplication.h"
+#include <mprpc/mprpcapplication.h>
+#include <mprpc/rpcprovider.h>
 #include "friend.pb.h"
 
 

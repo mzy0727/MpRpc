@@ -9,10 +9,13 @@
 #include <errno.h>
 #include "mprpcapplication.h"
 #include "zookeeperutil.h"
+#include "logger.h"
+// #include <symlog/symlog.h>
 // 所有通过stub代理调用的rpc方法，都走到这里了，统一做rpc方法调用端数据序列化和网络发送
 void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
                         google::protobuf::RpcController* controller, const google::protobuf::Message* request,
                         google::protobuf::Message* response, google::protobuf::Closure* done){
+    
     
     const google::protobuf::ServiceDescriptor *sd = method->service();
     std::string service_name = sd->name();  // service_name
@@ -51,16 +54,22 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     send_rpc_str.insert(0,std::string((char*)&header_size,4));  // header_size
     send_rpc_str += rpc_header_str; // rpc header
     send_rpc_str += args_str; // args
-
+    
      // 打印调试信息
-    std::cout<< "==================================================="<<std::endl;
-    std::cout<< "header_size: "<<header_size << std::endl;
-    std::cout<< "rpc_header_str: "<<rpc_header_str<<std::endl;
-    std::cout<< "service_name: "<<service_name<<std::endl;
-    std::cout<< "method_name: "<<method_name<<std::endl;
-    std::cout<< "args_str: "<<args_str<<std::endl;
-    std::cout<< "==================================================="<<std::endl;
-
+    // std::cout<< "==================================================="<<std::endl;
+    // std::cout<< "header_size: "<<header_size << std::endl;
+    // std::cout<< "rpc_header_str: "<<rpc_header_str<<std::endl;
+    // std::cout<< "service_name: "<<service_name<<std::endl;
+    // std::cout<< "method_name: "<<method_name<<std::endl;
+    // std::cout<< "args_str: "<<args_str<<std::endl;
+    // std::cout<< "==================================================="<<std::endl;
+    LOG_INFO( "===================================================");
+    LOG_INFO("header_size: %d",header_size) ;
+    // LOG_INFO<< "rpc_header_str: "<<rpc_header_str;
+    // LOG_INFO<< "service_name: "<<service_name;
+    // LOG_INFO<< "method_name: "<<method_name;
+    // LOG_INFO<< "args_str: "<<args_str;
+    LOG_INFO( "===================================================");
     // 使用tcp编程，完成rpc方法的远程调用
     int clientfd = socket(AF_INET,SOCK_STREAM,0);   // 可以使用智能指针
     if(clientfd == -1){
@@ -117,7 +126,8 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     }
     // 发送rpc请求
     if(-1 == send(clientfd,send_rpc_str.c_str(),send_rpc_str.size(),0)){
-        std::cout<< "send error! errno: "<<errno<<std::endl;
+        LOG_ERR("send error! errno: %d",errno);
+       // std::cout<< "send error! errno: "<<errno<<std::endl;
         close(clientfd);
         return ;
     }
@@ -125,7 +135,9 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     char recv_buf[1024] = {0};
     int recv_size = 0;
     if(-1 == (recv_size = recv(clientfd,recv_buf,1024,0))){
-        std::cout<< "recv error! errno: "<<errno<<std::endl;
+        LOG_ERR("recv error! errno: %d",errno);
+        
+      //  std::cout<< "recv error! errno: "<<errno<<std::endl;
         close(clientfd);
         return ;
     }
@@ -134,7 +146,10 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     //std::string response_str(recv_buf,0,recv_size);    // bug出现问题  recv_buf遇到\0后面的数据就存不下来了，导致反序列化失败
     //if(!response->ParseFromString(response_str)){
     if(!response->ParseFromArray(recv_buf,recv_size)){
-        std::cout<< "parse error! response_str: "<<recv_buf<<std::endl;
+         LOG_ERR("parse error! response_str: %s",recv_buf);
+        
+      //   LOG_ERR<<  "parse error! response_str: "<<recv_buf;
+       // std::cout<< "parse error! response_str: "<<recv_buf<<std::endl;
         close(clientfd);
         return ;
     }

@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
-#include "friend.pb.h"
-#include "mprpcapplication.h"
-#include "rpcprovider.h"
+// #include "mprpcapplication.h"
+// #include "rpcprovider.h"
 #include <vector>
-
+#include <mprpc/mprpcapplication.h>
+#include <mprpc/rpcprovider.h>
+#include "friend.pb.h"
+#include <symlog/symlog.h>
 /*
 FriendService原来是一个本地服务，提供了两个进程内的本地方法，GetFriendLists
 */
@@ -55,6 +57,9 @@ public:
 int main(int argc, char **argv){
     FriendService us;
    // us.Login("xxx","xxx");
+
+    // symlog::initAsyncLogging("mprpcchannel", 1024 * 1024 * 500);
+    // symlog::AsyncLogStart();
 
     // 调用框架的初始化操作 provider -i config.conf
     MprpcApplication::Init(argc,argv);

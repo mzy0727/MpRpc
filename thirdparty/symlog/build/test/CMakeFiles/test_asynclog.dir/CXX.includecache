@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mzy/Code/MpRpc/thirdparty/symlog/test/test_asynclog.cc
+symlog/symlog.h
+-
+stdio.h
+-
+unistd.h
+-
+chrono
+-
+filesystem
+-
+thread
+-
+

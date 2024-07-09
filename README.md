@@ -1093,3 +1093,10 @@ index: 3 name: Ye fan
 index: 4 name: Xiao yan
 ```
 
+### 日志
+```
+Total log size: 164068760 bytes
+Logging 2000000 entries took 0.893891 seconds
+Rate: 175.041574 MB/second
+
+```

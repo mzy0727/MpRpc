@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -std=c++17 -fPIC   CMakeFiles/test_asynclog.dir/test_asynclog.cc.o  -o ../../bin/test_asynclog  -Wl,-rpath,/home/mzy/Code/MpRpc/thirdparty/symlog/lib ../../lib/libsymlog.so -lpthread 

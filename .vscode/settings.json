@@ -59,6 +59,14 @@
         "list": "cpp",
         "cinttypes": "cpp",
         "typeindex": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "filesystem": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "charconv": "cpp",
+        "codecvt": "cpp",
+        "source_location": "cpp",
+        "future": "cpp",
+        "iomanip": "cpp"
     }
 }
