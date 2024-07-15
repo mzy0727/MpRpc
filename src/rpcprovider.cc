@@ -28,14 +28,6 @@ void RpcProvider::NotifyService(google::protobuf::Service *service){
         std::string method_name = pmethdDesc->name();
         service_info.m_methodMap.insert({method_name,pmethdDesc});
 
-      //  std::cout<<"method_name:"<<method_name<<std::endl;
-      // spdlog::info("method_name: {:s}",method_name.c_str());
-        //  LOG_INFO("method_name: {:s}",method_name.c_str());
-        // LOG_INFO("method_name: %s",method_name.c_str());
-        // LOG_INFO("method_name: %s",method_name.c_str());
-        // LOG_ERROR("method_name: %s",method_name.c_str());
-        // LOG_DEBUG("method_name: %s",method_name.c_str());
-        // LOG_DEBUG("method_name: %s",method_name.c_str());
     }
     service_info.m_service = service;
     m_serviceMap.insert({service_name,service_info});

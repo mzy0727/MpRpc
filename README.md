@@ -1,4 +1,75 @@
 # 从零实现分布式网络通信框架
+# 项目介绍
+
+该项目是在 Linux 环境下基于 muduo、Protobuf 和 Zookeeper 实现的一个轻量级 RPC 框架。可以把单体架构系统的本地方法调用，重构成基于 TCP 网络通信的 RPC 远程方法调用，实现统一台机器不同进程或者不同机器之间的服务调用。
+
+# 项目特点
+
+- 基于 muduo 网络库实现高并发网络通信模块，作为 RPC 远程调用的基础。
+- 基于 Protobuf 实现 RPC 方法调用和参数的序列化和反序列化，并根据其提供得 RPC 接口编写 RPC 服务。
+- 基于 ZooKeeper 分布式协调服务中间件提供服务注册和服务发现功能。
+- 基于生产者消费者模型，实现了异步工作方式的日志模块。
+
+# 项目演示
+
+项目构建，运行自动编译脚本，生成可执行程序。
+
+```bash
+chmod +x autobuild.sh #给自动编译脚本添加可执行权限
+./autobuild.sh #启动自动编译脚本
+
+# 执行完后，会在当前目录的bin目录下生成可执行文件
+[Joy@VM-12-10-centos mprpc]$ tree ./bin/
+./bin/
+|-- consumer
+|-- mprpc.conf
+`-- provider
+
+0 directories, 3 files
+
+# mprpc.conf 是 rpc 节点和 Zookeeper 的配置信息
+[Joy@VM-12-10-centos mprpc]$ cat ./bin/mprpc.conf 
+# rpc节点的ip地址
+rpcserverip=127.0.0.1
+# rpc节点的端口号
+rpcserverport=8080
+# zookeeper的ip地址
+zookeeperip=127.0.0.1
+# zookeeper的端口号
+```
+
+启动 Zookeeper，我们需要再 Zookeeper 上获取注册的服务消息，因此先需要保证启动了 Zookeeper。进入到 Zookeeper 的目录，我的 Zookeeper 目录是在`/home/Joy/install/zookeeper-3.4.10`。在里面的`bin`目录下有客户端和服务端的启动脚本，先启动 Zookeeper 服务端，再启动客户端。启动客户端主要是为了看我们的 RPC 框架是否插入新服务信息。
+
+```bash
+./zkServer.sh start #启动 Zookeeper 服务端
+./zkCli.sh #启动 Zookeeper 客户端
+```
+
+![1](https://gitee.com/DreamyHorizon/mprpc/raw/master/image/1_20230821225819.png)
+
+启动服务端
+
+```bash
+./provider -i mprpc.conf
+```
+
+我们观察下打印的信息，可以看到它打印了 `mprpc.conf` 配置文件的信息，至少说明 RPC 框架读取配置是成功的。
+
+![1](https://gitee.com/DreamyHorizon/mprpc/raw/master/image/2_20230821231918.png)
+
+重点是下面的信息，其显示在 Zookeeper 上注册了服务。
+
+![3_20230821232424](https://gitee.com/DreamyHorizon/mprpc/raw/master/image/3_20230821232424.png)
+
+启动客户端
+
+```bash
+./consumer -i mprpc.conf
+```
+
+![4_20230821233410](https://gitee.com/DreamyHorizon/mprpc/raw/master/image/4_20230821233410.png)
+
+有很多的提示信息，也是解析了配置文件，并且有许多 Zookeeper 相关日志信息。这里注意最重要的几个地方，它打印显示了 `rpc Login response : 1`。响应为 1，RPC 方法调用成功！
 
 ## 集群与分布式
 
