@@ -1,0 +1,93 @@
+16:11:11 =>[info] zookeeper init success!
+16:11:12 =>[info] ===================================================
+16:11:12 =>[info] send_rpc_str: P©ûŽƒU
+16:11:12 =>[info] send_rpc_str: 46
+16:11:12 =>[info] header_size: 36
+16:11:12 =>[info] ===================================================
+16:11:12 =>[info] zookeeper init success!
+16:11:12 =>[error] get znode error!
+16:13:46 =>[info] zookeeper init success!
+16:13:46 =>[info] znode create success! path: /FriendServiceRpc/GetFriendsList
+16:13:49 =>[info] ===================================================
+16:13:49 =>[info] send_rpc_str: PI™5eU
+16:13:49 =>[info] send_rpc_str: 46
+16:13:49 =>[info] header_size: 36
+16:13:49 =>[info] ===================================================
+16:13:49 =>[info] zookeeper init success!
+16:15:25 =>[info] zookeeper init success!
+16:15:27 =>[info] send_all_size 42
+16:15:27 =>[info] ===================================================
+16:15:27 =>[info] send_rpc_str: PøéqU
+16:15:27 =>[info] send_rpc_str: 46
+16:15:27 =>[info] header_size: 36
+16:15:27 =>[info] ===================================================
+16:15:27 =>[info] zookeeper init success!
+16:17:6 =>[info] zookeeper init success!
+16:17:6 =>[info] znode create success! path: /FriendServiceRpc/GetFriendsList
+16:17:9 =>[info] send_all_size 46
+16:17:9 =>[info] ===================================================
+16:17:9 =>[info] send_rpc_str: Py˜“hU
+16:17:9 =>[info] send_rpc_str: 46
+16:17:9 =>[info] header_size: 36
+16:17:9 =>[info] ===================================================
+16:17:9 =>[info] zookeeper init success!
+16:19:59 =>[info] zookeeper init success!
+16:20:2 =>[info] send_all_size 46
+16:20:2 =>[info] ===================================================
+16:20:2 =>[info] send_rpc_str: P‰CxU
+16:20:2 =>[info] send_rpc_str: 46
+16:20:2 =>[info] header_size: 36
+16:20:2 =>[info] ===================================================
+16:20:2 =>[info] zookeeper init success!
+16:20:49 =>[info] zookeeper init success!
+16:20:49 =>[info] znode create success! path: /FriendServiceRpc/GetFriendsList
+16:20:51 =>[info] send_all_size 46
+16:20:51 =>[info] ===================================================
+16:20:51 =>[info] send_rpc_str: PÙ±½bU
+16:20:51 =>[info] send_rpc_str: 46
+16:20:51 =>[info] header_size: 36
+16:20:51 =>[info] ===================================================
+16:20:51 =>[info] zookeeper init success!
+16:22:40 =>[info] zookeeper init success!
+16:22:43 =>[info] send_all_size 46
+16:22:43 =>[info] ===================================================
+16:22:43 =>[info] send_rpc_str: PÙoÔ
+16:22:43 =>[info] send_rpc_str: 46
+16:22:43 =>[info] header_size: 36
+16:22:43 =>[info] ===================================================
+16:22:43 =>[info] zookeeper init success!
+16:25:24 =>[info] zookeeper init success!
+16:25:24 =>[info] znode create success! path: /FriendServiceRpc/GetFriendsList
+16:25:26 =>[info] send_all_size 46
+16:25:26 =>[info] ===================================================
+16:25:26 =>[info] send_rpc_str: Pé~yöU
+16:25:26 =>[info] send_rpc_str: 46
+16:25:26 =>[info] header_size: 36
+16:25:26 =>[info] ===================================================
+16:25:26 =>[info] zookeeper init success!
+16:26:35 =>[info] zookeeper init success!
+16:26:37 =>[info] send_all_size 46
+16:26:37 =>[info] ===================================================
+16:26:37 =>[info] send_rpc_str: Pi°‹
+V
+16:26:37 =>[info] send_rpc_str: 46
+16:26:37 =>[info] header_size: 36
+16:26:37 =>[info] ===================================================
+16:26:37 =>[info] zookeeper init success!
+16:29:25 =>[info] zookeeper init success!
+16:29:25 =>[info] znode create success! path: /FriendServiceRpc/GetFriendsList
+16:29:27 =>[info] send_all_size 46
+16:29:27 =>[info] ===================================================
+16:29:27 =>[info] send_rpc_str: P	«hxU
+16:29:27 =>[info] send_rpc_str: 46
+16:29:27 =>[info] header_size: 36
+16:29:27 =>[info] ===================================================
+16:29:27 =>[info] zookeeper init success!
+16:31:1 =>[info] zookeeper init success!
+16:31:3 =>[info] send_all_size 42
+16:31:3 =>[info] ===================================================
+16:31:3 =>[info] send_rpc_str: PIEØU
+16:31:3 =>[info] send_rpc_str: 46
+16:31:3 =>[info] header_size: 36
+16:31:3 =>[info] ===================================================
+16:31:3 =>[info] zookeeper init success!

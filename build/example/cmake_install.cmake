@@ -1,4 +1,4 @@
-# Install script for directory: /media/mzy/learn_mprpc/example
+# Install script for directory: /home/mzy/Code/MpRpc/example
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,15 +37,10 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/media/mzy/learn_mprpc/build/example/callee/cmake_install.cmake")
-  include("/media/mzy/learn_mprpc/build/example/caller/cmake_install.cmake")
+  include("/home/mzy/Code/MpRpc/build/example/callee/cmake_install.cmake")
+  include("/home/mzy/Code/MpRpc/build/example/caller/cmake_install.cmake")
 
 endif()
 

@@ -1,21 +1,24 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
   )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/mzy/Code/MpRpc/src/logger.cc" "/home/mzy/Code/MpRpc/build/src/CMakeFiles/mprpc.dir/logger.cc.o"
+  "/home/mzy/Code/MpRpc/src/mprpcapplication.cc" "/home/mzy/Code/MpRpc/build/src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o"
+  "/home/mzy/Code/MpRpc/src/mprpcchannel.cc" "/home/mzy/Code/MpRpc/build/src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o"
+  "/home/mzy/Code/MpRpc/src/mprpcconfig.cc" "/home/mzy/Code/MpRpc/build/src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o"
+  "/home/mzy/Code/MpRpc/src/mprpccontroller.cc" "/home/mzy/Code/MpRpc/build/src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o"
+  "/home/mzy/Code/MpRpc/src/rpcheader.pb.cc" "/home/mzy/Code/MpRpc/build/src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o"
+  "/home/mzy/Code/MpRpc/src/rpcprovider.cc" "/home/mzy/Code/MpRpc/build/src/CMakeFiles/mprpc.dir/rpcprovider.cc.o"
+  "/home/mzy/Code/MpRpc/src/zookeeperutil.cc" "/home/mzy/Code/MpRpc/build/src/CMakeFiles/mprpc.dir/zookeeperutil.cc.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/media/mzy/learn_mprpc/src/logger.cc" "src/CMakeFiles/mprpc.dir/logger.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/logger.cc.o.d"
-  "/media/mzy/learn_mprpc/src/mprpcapplication.cc" "src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o.d"
-  "/media/mzy/learn_mprpc/src/mprpcchannel.cc" "src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o.d"
-  "/media/mzy/learn_mprpc/src/mprpcconfig.cc" "src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o.d"
-  "/media/mzy/learn_mprpc/src/mprpccontroller.cc" "src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o.d"
-  "/media/mzy/learn_mprpc/src/rpcheader.pb.cc" "src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o.d"
-  "/media/mzy/learn_mprpc/src/rpcprovider.cc" "src/CMakeFiles/mprpc.dir/rpcprovider.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/rpcprovider.cc.o.d"
-  "/media/mzy/learn_mprpc/src/zookeeperutil.cc" "src/CMakeFiles/mprpc.dir/zookeeperutil.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/zookeeperutil.cc.o.d"
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../src/include"
+  "../example"
   )
 
 # Targets to which this target links.

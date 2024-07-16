@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "/media/mzy/learn_mprpc/bin/provider"
-  "/media/mzy/learn_mprpc/bin/provider.pdb"
+  "../../../bin/provider"
+  "../../../bin/provider.pdb"
   "CMakeFiles/provider.dir/__/friend.pb.cc.o"
-  "CMakeFiles/provider.dir/__/friend.pb.cc.o.d"
   "CMakeFiles/provider.dir/friendservice.cc.o"
-  "CMakeFiles/provider.dir/friendservice.cc.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

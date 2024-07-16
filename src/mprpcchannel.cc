@@ -32,6 +32,7 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         return ;
     }
 
+    
     // 定义rpc的请求header
     mprpc::RpcHeader rpcHeader;
     rpcHeader.set_service_name(service_name);
@@ -48,15 +49,19 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         controller->SetFailed("Serialize rpc header error!");
         return ;
     }
-
+    uint32_t send_all_size = SEND_RPC_HEADERSIZE  + rpc_header_str.size() + args_str.size();
+     LOG_INFO( "send_all_size %d",send_all_size);
     // 组织待发送到rpc请求的字符串
     std::string send_rpc_str;
-    send_rpc_str.insert(0,std::string((char*)&header_size,4));  // header_size
+    send_rpc_str += std::string((char*)&send_all_size,4);
+    send_rpc_str += std::string((char*)&header_size,4);
+   // send_rpc_str.insert(0,std::string((char*)&header_size,4));  // header_size
     send_rpc_str += rpc_header_str; // rpc header
     send_rpc_str += args_str; // args
     
-   
     LOG_INFO( "===================================================");
+    LOG_INFO("send_rpc_str: %s",send_rpc_str) ;
+    LOG_INFO("send_rpc_str: %d",send_rpc_str.size()) ;
     LOG_INFO("header_size: %d",header_size) ;
    
     LOG_INFO( "===================================================");

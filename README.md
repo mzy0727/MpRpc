@@ -19,7 +19,7 @@ chmod +x autobuild.sh #给自动编译脚本添加可执行权限
 ./autobuild.sh #启动自动编译脚本
 
 # 执行完后，会在当前目录的bin目录下生成可执行文件
-[Joy@VM-12-10-centos mprpc]$ tree ./bin/
+[mprpc]$ tree ./bin/
 ./bin/
 |-- consumer
 |-- mprpc.conf
@@ -28,7 +28,7 @@ chmod +x autobuild.sh #给自动编译脚本添加可执行权限
 0 directories, 3 files
 
 # mprpc.conf 是 rpc 节点和 Zookeeper 的配置信息
-[Joy@VM-12-10-centos mprpc]$ cat ./bin/mprpc.conf 
+[mprpc]$ cat ./bin/mprpc.conf 
 # rpc节点的ip地址
 rpcserverip=127.0.0.1
 # rpc节点的端口号

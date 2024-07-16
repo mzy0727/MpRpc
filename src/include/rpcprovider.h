@@ -42,4 +42,7 @@ private:
 
     // Closure的回调操作，用于序列化rpc的响应和网络发送
     void SendRpcResponse(const muduo::net::TcpConnectionPtr &, google::protobuf::Message *);
+
+    void processMessage(const muduo::net::TcpConnectionPtr &conn, const std::string& recv_buf);
+    
 };

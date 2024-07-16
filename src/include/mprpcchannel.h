@@ -4,6 +4,8 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/message.h>
 #include "mprpccontroller.h"
+
+const int SEND_RPC_HEADERSIZE = 4;
 /*
 header_size + service_name method_name args_size + args
 */

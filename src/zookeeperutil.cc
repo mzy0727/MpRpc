@@ -60,7 +60,7 @@ void ZkClient::Create(const char* path, const char* data, int datalen, int state
 
         if (ZOK == flag) {
            // std::cout << "znode create success! path:" << path << std::endl;
-             LOG_INFO("znode create success! path: {:s}", path);
+             LOG_INFO("znode create success! path: %s", path);
         } else {
            // std::cout << "flag:" << flag << std::endl;
            // std::cout << "znode create error! path:" << path <<std::endl;
